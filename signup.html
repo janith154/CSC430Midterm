@@ -1,5 +1,8 @@
 <?php
   include("dbconnect.php");
+  if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,9 +109,17 @@
                     <input class="contactus" placeholder="Full Name" type="text" name="name">
                   </div>
                   <div class="col-md-12">
-                    <input class="contactus" placeholder="Email" type="text" name="email">
+                    <div class="errMsg">
+                      <?php if(!empty($_SESSION['errEmailMsg'])) { echo $_SESSION['errEmailMsg']; } ?>
+                    </div>
+                    <?php unset($_SESSION['errEmailMsg']); ?>
+                    <input class="contactus" placeholder="Email" type="text" name="email">        
                   </div>
                   <div class="col-md-12">
+                    <div class="errMsg">
+                      <?php if(!empty($_SESSION['errUsernameMsg'])) { echo $_SESSION['errUsernameMsg']; } ?>
+                    </div>
+                    <?php unset($_SESSION['errUsernameMsg']); ?>
                     <input class="contactus" placeholder="Username" type="text" name="username">
                   </div>
                   <div class="col-md-12">
