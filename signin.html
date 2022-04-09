@@ -1,6 +1,8 @@
 <?php
    include 'dbconnect.php';
-   session_start();
+   if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -120,6 +122,9 @@
 
                     
                   </div>
+                </div>
+                <div class="errMsg">
+                  <?php if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?>
                 </div>
               </form>
             </div>

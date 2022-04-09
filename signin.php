@@ -1,5 +1,7 @@
 <?php
-    session_start();
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 
      $username = $_POST['username'];
      $password = $_POST['password'];
@@ -20,7 +22,8 @@
                 echo "<h2> Login Sucessful!</h2>";
                 header("Location: account.php");
             }else {
-                echo "<h2> Invalid Email or Password.</h2>";
+                $_SESSION['errMsg'] = "Invalid username or password";
+                include('signin.html');
             }
         }
         $stmt->close(); 
