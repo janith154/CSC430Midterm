@@ -106,6 +106,9 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="col-md-12">
+                    <div class="errMsg">
+                      <?php if(!empty($_SESSION['errFieldMsg'])) { echo $_SESSION['errFieldMsg']; } ?>
+                    </div>
                     <input class="contactus" placeholder="Full Name" type="text" name="name">
                   </div>
                   <div class="col-md-12">

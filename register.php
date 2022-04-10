@@ -54,9 +54,10 @@
 
 			header("Location: signin.html");
 		}
-	}
-	else {
-		echo "All fields required.";
+		else {
+			$_SESSION['errFieldMsg'] = "All fields required.";
+			include('signup.html');
+		}
 	}
 	mysqli_close($conn);
 ?>

@@ -26,6 +26,10 @@
                 include('signin.html');
             }
         }
+        else{
+            $_SESSION['errMsg'] = "Invalid username or password";
+            include('signin.html');
+        }
         $stmt->close(); 
     }
 
