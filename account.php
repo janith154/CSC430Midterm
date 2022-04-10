@@ -110,6 +110,16 @@ tr:nth-child(even) {
                   <nav class="main-menu ">
                     <ul class="menu-area-main">
                       <li class="active"> <a href="index.php">Home</a> </li>
+                      <li> <a href="concertlist.php">Concerts</a> </li>
+                      <li> 
+                        <?php  
+                          if(isset($_SESSION['username'])) {
+                          echo '<li><a href="account.php"><span>Account</span></a></li>';
+                          } else {
+                          echo '<li><a href="signin.html"><span>Sign In</span></a></li>';
+                          } 
+                        ?>
+                      </li>
                      <li> <a href="#"><img src="icon/icon_b.png" alt="#" /></a></li>
                      </ul>
                    </nav>
@@ -140,7 +150,7 @@ tr:nth-child(even) {
   <div id="Account Info" class="tabcontent">
     <h3>Account Information</h3>
     <p>
-      <?php echo "<h2>Welcome ," . $_SESSION['username'] . "!</h2><br>";
+      <?php echo "<h2>Welcome, " . $_SESSION['username'] . "!</h2><br>";
           $user = $_SESSION['username'];
           $accEmail = "SELECT a.email FROM account as a WHERE username = ?";
           $stmtE = $conn->prepare($accEmail);

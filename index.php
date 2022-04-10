@@ -67,7 +67,7 @@
                     <ul class="menu-area-main">
                       <li class="active"> <a href="index.php">Home</a> </li>
                       <li> <a href="#about">About</a> </li>
-                      <li> <a href="#concerts">Concerts</a> </li>
+                      <li> <a href="concertlist.php">Concerts</a> </li>
                       <li> <a href="#testimonial">Testomonial</a> </li>
                       <li> <a href="#contact">Contact Us</a> </li>
                       <li> 
