@@ -6,8 +6,6 @@
      $username = $_POST['username'];
      $password = $_POST['password'];
 
-     $_SESSION['username'] = $username;
-
 	$conn = mysqli_connect("localhost","root","","concertticketsalessystem");
 	if($conn->connect_error){
 		die("Connection Failed: " . $conn->connect_error);
@@ -20,6 +18,7 @@
             $data = $stmt_result->fetch_assoc();
             if($data['password'] === $password){
                 echo "<h2> Login Sucessful!</h2>";
+                $_SESSION['username'] = $username;
                 header("Location: account.php");
             }else {
                 $_SESSION['errMsg'] = "Invalid username or password";
