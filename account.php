@@ -162,7 +162,7 @@ tr:nth-child(even) {
       <table>
         <th>Order Number</th>
         <th>Price</th>
-        <th>Date of concert</th>
+        <th>Order Date</th>
       <?php
         $user = $_SESSION['username'];
         $accountIDsql = "SELECT a.account_ID from account as a WHERE username = ?";
@@ -182,7 +182,7 @@ tr:nth-child(even) {
             $stmt_result2 = $stmt2->get_result();
             if($stmt_result2->num_rows > 0){
               while($rows = $stmt_result2->fetch_assoc()) {
-                echo "<tr><td>" . $rows['order_ID'] . "</td><td>$" . $rows['order_total'] . "</td><td>" . $rows['order_date'] . "</td></tr>";
+                echo "<tr><td>" . $rows['order_ID'] . "</td><td>$" . $rows['order_total'] . "</td><td>" . $rows['order_date'] . '</td><td><button type="submit"><a href="refund.php?order_ID='.$rows['order_ID'].' ">Refund</a></button></td></tr>';
               }
             } else {
               echo "There are currently no orders for this account.";
