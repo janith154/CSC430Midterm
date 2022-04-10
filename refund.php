@@ -99,7 +99,15 @@ tr:nth-child(even) {
                       <li> <a href="#concerts">Concerts</a> </li>
                       <li> <a href="#testimonial">Testomonial</a> </li>
                       <li> <a href="#contact">Contact Us</a> </li>
-                      <li> <a href= "signin.html">Sign In / Sign Up</a> </li>
+                      <li> 
+                        <?php  
+                          if(isset($_SESSION['username'])) {
+                          echo '<li><a href="account.php"><span>Account</span></a></li>';
+                          } else {
+                          echo '<li><a href="signin.html"><span>Sign In</span></a></li>';
+                          } 
+                        ?>
+                     <li> 
                      
                      <li> <a href="#"><img src="icon/icon_b.png" alt="#" /></a></li>
                      </ul>
@@ -138,20 +146,21 @@ tr:nth-child(even) {
                         <th>Order Date</th>
                     </tr>
                     <?php 
-                        $query = "SELECT o.order_total, o.order_date FROM orders as o WHERE o.order_ID = $orderID";
+                        $query = "SELECT o.order_ID, o.order_total, o.order_date FROM orders as o WHERE o.order_ID = $orderID";
                         $result = mysqli_query($conn, $query);
 
                         if($result->num_rows > 0){
                             while ($row = mysqli_fetch_assoc($result)) {
-                                echo '<tr><td>' . $orderID . '</td><td>' . $row['order_total'] . '</td><td>' . $row['order_date'] . '</td></tr>';
+                                echo '<tr><td>' . $row['order_ID'] . '</td><td>' . $row['order_total'] . '</td><td>' . $row['order_date'] . '</td></tr>';
                                 $price = $row['order_total'];
+                                $ID = $row['order_ID'];
                             }
                         }
                     ?>
                 </table><br><br>
                 <p style="text-align:right">
-                    <b>Total :</b> <?php echo $price ?> 
-                    <?php echo "<button name='refund' type='submit' value='refund'><a href='refundconfirmation.php?order_ID='.$orderID.>Confirm Refund</button>" ?> 
+                    <b>Total :</b> <?php echo $price . ' 
+                    <button name="refund" type="submit" value="refund"><a href="refundconfirmation.php?order_ID='. $orderID . '">Confirm Refund</a></button>' ?>
 			    </p>
               <!-- </form> -->
            </div>
@@ -237,5 +246,4 @@ tr:nth-child(even) {
           <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 
 </body>
-
 </html>
