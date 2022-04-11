@@ -65,10 +65,9 @@
                 <div class="limit-box">
                   <nav class="main-menu ">
                     <ul class="menu-area-main">
-                      <li class="active"> <a href="index.php">Home</a> </li>
+                      <li> <a href="index.php">Home</a> </li>
                       <li> <a href="#about">About</a> </li>
                       <li> <a href="concertlist.php">Concerts</a> </li>
-                      <li> <a href="#testimonial">Testomonial</a> </li>
                       <li> <a href="#contact">Contact Us</a> </li>
                       <li> 
                         <?php  
@@ -78,7 +77,7 @@
                           echo '<li><a href="signin.html"><span>Sign In</span></a></li>';
                           } 
                         ?>
-                     <li> <a href="#"><img src="icon/icon_b.png" alt="#" /></a></li>
+                     </li>
                      </ul>
                    </nav>
                  </div>
@@ -111,7 +110,7 @@
 
           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
             <div class="images_box">
-              <figure><img src="images/ConcertStockPhoto.jpg"></figure>
+              <figure><img src="images/deadliest-concerts-social.jpeg"></figure>
             </div>
           </div>
         </div>
@@ -141,7 +140,7 @@
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="images_box">
-                      <a><img src="images/DuaLipaPhoto.jpg"></a>
+                      <a><img src="images/dua-lipa-attends-varietys-2nd-annual-hitmakers-brunch-at-news-photo-1604677508_.jpg"></a>
                     </div>
                   </div>
                 </div>
@@ -166,7 +165,7 @@
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="images_box">
-                      <a href = ""><img src="images/DrakePhoto.jpg"></a>
+                      <a href = ""><img src="images/draaaaaake.jpeg"></a>
                     </div>
                   </div>
                 </div>
@@ -189,7 +188,7 @@
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="images_box">
-                      <a href=""><img src="images/PushaTPhoto.jpg"></a>
+                      <a href=""><img src="images/GettyImages-1210002266_onebed.webp"></a>
                     </div>
                   </div>
                 </div>
@@ -222,8 +221,7 @@
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
         <div class="about-box">
           <h2>About us</h2>
-          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages andIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many</p>
-          <a href="Javascript:void(0)">Read more</a>
+          <p>After starting this project in March 2022, our team has commited themselves to improving user experience. From our customer-oriented return policy to our 24/7 support team, we have shown that we value our users more than anything. Our goal is to ensure each of our clients are delivered a seamless experience, from purchasing tickets to attending events. </p>
         </div>
       </div>
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_rl">
@@ -239,45 +237,29 @@
 
 
 
-<!-- concerts -->
-<div id="concerts" class="concerts">
-  <div class="container">
+<!-- about  -->
+<div id="comingsoon" class="about">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-12">
-        <div  class="titlepage">
-          <h2> upcoming <strong class="llow">events</strong> </h2>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+        <div class="about-box">
+          <h2>Coming Soon</h2>
+          <p>After he announced his new album, The Weeknd confirmed that his tour will begin in late June. Stay tuned for ticket listings in the coming weeks!</p>
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_rl">
+        <div class="about-box_img">
+          <figure><img src="images/weekendphoto.jpg" alt="#" /></figure>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 ">
-        <div class="vegetable_shop">
-          <h3>Coming Soon</h3>
-          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages andIt is a long established fact that a reader will be distracted </p>
-        </div>
-      </div>
-       <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 ">
-        <div class="vegtable_img">
-         <figure><img src="images/ConcertStockPhoto.jpg" alt="#"/></figure>
-         <span>01</span>
-        </div>
-      </div>
-       <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 ">
-        <div class="vegetable_img margin_top">
-         <figure><img src="images/ConcertStockPhoto.jpg" alt="#"/></figure>
-         <span>02</span>
-        </div>
-      </div>
-    </div>
+
   </div>
 </div>
-<!-- end vegetable -->
+<!-- end abouts -->
 
-
-
-
-   <!-- clients -->
-    <div id="testimonial" class="clients">
+<!-- clients -->
+<div id="testimonial" class="clients">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -306,12 +288,13 @@
                                 <div class="row">
                                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 pa_right">
                                         <div class="testomonial_img">
+                                        <figure><img src="images/tes.jpg" alt="#"/></figure>
                                         </div>
                                     </div>
                                     <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 pa_left">
                                         <div class="cross_inner">
-                                            <h3>Jomono<br><strong class="ornage_color">review</strong></h3>
-                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and
+                                            <h3>Example Customer 1<br><strong class="ornage_color">review</strong></h3>
+                                            <p>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and"
                                           
                                             </p>
 
@@ -332,13 +315,13 @@
                                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 pa_right">
                                         <div class="testomonial_img">
                                             <figure><img src="images/tes.jpg" alt="#"/></figure>
-                                            <i><img src="images/test_con.png" alt="#"/></i>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 pa_left">
                                         <div class="cross_inner">
-                                            <h3>Jomono<br><strong class="ornage_color">review</strong></h3>
-                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and
+                                            <h3>Example Customer 2<br><strong class="ornage_color">review</strong></h3>
+                                            <p>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and"
                                               
                                             </p>
 
@@ -360,13 +343,13 @@
                                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 pa_right">
                                         <div class="testomonial_img">
                                             <figure><img src="images/tes.jpg" alt="#"/></figure>
-                                            <i><img src="images/test_con.png" alt="#"/></i>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 pa_left">
                                         <div class="cross_inner">
-                                            <h3>Jomono<br><strong class="ornage_color">review</strong></h3>
-                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and
+                                            <h3>Example Customer 3<br><strong class="ornage_color">review</strong></h3>
+                                            <p>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and"
                                               
                                             </p>
 
@@ -388,6 +371,11 @@
 
 
 
+  
+
+
+
+
 <!-- contact -->
 <div id="contact" class="contact">
   <div class="container">
@@ -404,6 +392,7 @@
 
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
            <form class="contact_bg">
+             
             <div class="row">
               <div class="col-md-12">
               
@@ -420,9 +409,11 @@
                   <textarea class="textarea" placeholder="Message" type="text" name="Message"></textarea>
                 </div>
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                  <button class="send">Send</button>
+                  <button class="send">Send</button> <h3>Alternatively, reach us at contact@example.com</h3>
                 </div>
+                
               </div>
+              
             </form>
           </div>
             </div>
@@ -512,32 +503,8 @@
           <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 
 
-          <script>
-// This example adds a marker to indicate the position of Bondi Beach in Sydney,
-// Australia.
-function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 11,
-    center: {
-      lat: 40.645037,
-      lng: -73.880224
-    },
-  });
+         
 
-  var image = 'images/maps-and-flags.png';
-  var beachMarker = new google.maps.Marker({
-    position: {
-      lat: 40.645037,
-      lng: -73.880224
-    },
-    map: map,
-    icon: image
-  });
-}
-</script>
-<!-- google map js -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
-<!-- end google map js -->
 
 
 
