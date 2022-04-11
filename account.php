@@ -250,7 +250,7 @@ tr:nth-child(even) {
                             <li class="active"> <a href="#">Twitter</a> </li>
                             <li><a href="#">Facebook</a> </li>
                             <li><a href="#">Instagram</a> </li>
-                            <li><a href="#">Linkdin</a> </li>
+                            <li><a href="#">Linkedin</a> </li>
                           </ul>
                         </div>
                       </div>
