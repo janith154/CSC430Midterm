@@ -59,23 +59,6 @@ function openTabs(evt, tabName) {
     evt.currentTarget.className += " active";
   }
 </script>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
 </head>
 <!-- body -->
 
@@ -110,16 +93,6 @@ tr:nth-child(even) {
                   <nav class="main-menu ">
                     <ul class="menu-area-main">
                       <li class="active"> <a href="index.php">Home</a> </li>
-                      <li> <a href="concertlist.php">Concerts</a> </li>
-                      <li> 
-                        <?php  
-                          if(isset($_SESSION['username'])) {
-                          echo '<li><a href="account.php"><span>Account</span></a></li>';
-                          } else {
-                          echo '<li><a href="signin.html"><span>Sign In</span></a></li>';
-                          } 
-                        ?>
-                      </li>
                      <li> <a href="#"><img src="icon/icon_b.png" alt="#" /></a></li>
                      </ul>
                    </nav>
@@ -169,10 +142,6 @@ tr:nth-child(even) {
   <div id="Orders" class="tabcontent">
     <h3>Your Past Orders</h3>
     <p>
-      <table>
-        <th>Order Number</th>
-        <th>Price</th>
-        <th>Order Date</th>
       <?php
         $user = $_SESSION['username'];
         $accountIDsql = "SELECT a.account_ID from account as a WHERE username = ?";
@@ -183,31 +152,47 @@ tr:nth-child(even) {
         if($stmt_result->num_rows> 0){
             $row = $stmt_result->fetch_assoc();
             $UID = $row['account_ID'];
-            $accountID = intval($UID);
-            
-            $userOrders = "SELECT o.order_ID, o.order_total, o.order_date FROM orders as o WHERE o.account_ID = ?";
+            $stmt->close();
+
+            $userOrders = "SELECT * FROM orders as o WHERE o.account_ID = ?";
             $stmt2 = $conn->prepare($userOrders);
-            $stmt2->bind_param('i', $accountID);
+            $stmt2->bind_param("i", $UID);
             $stmt2->execute();
             $stmt_result2 = $stmt2->get_result();
             if($stmt_result2->num_rows > 0){
-              while($rows = $stmt_result2->fetch_assoc()) {
-                echo "<tr><td>" . $rows['order_ID'] . "</td><td>$" . $rows['order_total'] . "</td><td>" . $rows['order_date'] . '</td><td><button type="submit"><a href="refund.php?order_ID='.$rows['order_ID'].' ">Refund</a></button></td></tr>';
+              while($rows = $results->fetch_assoc()) {
+                echo $rows['order_ID'] . " ";
+                $rows ['account_ID'];
+                echo "$" . $rows['order_total'] . " ". $rows['order_date'] . "<br>";
               }
             } else {
               echo "There are currently no orders for this account.";
             }
-            
         }
-        mysqli_close($conn);
+         
       ?>
-      </table>
       </p>
   </div>
   
   <div id="Payment Info" class="tabcontent">
-    <h3>Payment Information</h3>
-    <p>Tokyo is the capital of Japan.</p>
+  <h3>Payment Information</h3>
+    <p>
+      <?php 
+          $user = $_SESSION['username'];
+          $accCredit = "SELECT a.credit_info FROM account as a WHERE a.username = ?";
+          $stmtC = $conn->prepare($accCredit);
+          $stmtC->bind_param("s", $user);
+          $stmtC->execute();
+          $stmtC_result = $stmtC->get_result();
+          if($stmtC_result->num_rows>0){
+            $cRow = $stmtC_result->fetch_assoc();
+            $credit_info = $cRow['credit_info'];
+            echo "Your current payment on file is XXXX-XXXX-" . substr($credit_info, -4); 
+          }
+          $stmtC->close();
+          mysqli_close($conn);
+      ?>
+    </p>
   </div>
 
   <script>
