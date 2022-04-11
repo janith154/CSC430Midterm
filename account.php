@@ -59,6 +59,23 @@ function openTabs(evt, tabName) {
     evt.currentTarget.className += " active";
   }
 </script>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 </head>
 <!-- body -->
 
@@ -142,6 +159,10 @@ function openTabs(evt, tabName) {
   <div id="Orders" class="tabcontent">
     <h3>Your Past Orders</h3>
     <p>
+      <table>
+        <th>Order Number</th>
+        <th>Price</th>
+        <th>Order Date</th>
       <?php
         $user = $_SESSION['username'];
         $accountIDsql = "SELECT a.account_ID from account as a WHERE username = ?";
@@ -152,25 +173,23 @@ function openTabs(evt, tabName) {
         if($stmt_result->num_rows> 0){
             $row = $stmt_result->fetch_assoc();
             $UID = $row['account_ID'];
-            $stmt->close();
-
-            $userOrders = "SELECT * FROM orders as o WHERE o.account_ID = ?";
+            $accountID = intval($UID);
+            
+            $userOrders = "SELECT o.order_ID, o.order_total, o.order_date FROM orders as o WHERE o.account_ID = ?";
             $stmt2 = $conn->prepare($userOrders);
-            $stmt2->bind_param("i", $UID);
+            $stmt2->bind_param('i', $accountID);
             $stmt2->execute();
             $stmt_result2 = $stmt2->get_result();
             if($stmt_result2->num_rows > 0){
-              while($rows = $results->fetch_assoc()) {
-                echo $rows['order_ID'] . " ";
-                $rows ['account_ID'];
-                echo "$" . $rows['order_total'] . " ". $rows['order_date'] . "<br>";
+              while($rows = $stmt_result2->fetch_assoc()) {
+                echo "<tr><td>" . $rows['order_ID'] . "</td><td>$" . $rows['order_total'] . "</td><td>" . $rows['order_date'] . '</td><td><button type="submit"><a href="refund.php?order_ID='.$rows['order_ID'].' ">Refund</a></button></td></tr>';
               }
             } else {
               echo "There are currently no orders for this account.";
-            }
+            }   
         }
-         
       ?>
+      </table>
       </p>
   </div>
   
@@ -270,13 +289,5 @@ function openTabs(evt, tabName) {
           <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
           <script src="js/custom.js"></script>
           <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-
-
-          
-
-
-
-
 </body>
-
 </html>
